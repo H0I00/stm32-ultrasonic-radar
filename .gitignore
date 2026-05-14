@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Keil / ARM build outputs
+Listings/
+Objects/
+DebugConfig/
+*.uvguix.*
+*.uvoptx
+*.axf
+*.hex
+*.elf
+*.map
+*.lst
+*.o
+*.d
+*.crf
+*.lnp
+*.dep
+*.htm
+*.build_log.htm
+
+# Editor and OS files
+.vscode/
+.idea/
+.vs/
+*.swp
+*.swo
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
