@@ -662,26 +662,6 @@
               <FilePath>.\System\Delay.h</FilePath>
             </File>
             <File>
-              <FileName>bsp_TiMbase.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\System\bsp_TiMbase.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp_TiMbase.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\System\bsp_TiMbase.h</FilePath>
-            </File>
-            <File>
-              <FileName>systick.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\System\systick.c</FilePath>
-            </File>
-            <File>
-              <FileName>systick.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\System\systick.h</FilePath>
-            </File>
-            <File>
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\System\uart.c</FilePath>
@@ -712,11 +692,6 @@
               <FilePath>.\Hardware\hcsr.c</FilePath>
             </File>
             <File>
-              <FileName>Key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\Key.c</FilePath>
-            </File>
-            <File>
               <FileName>OLED.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Hardware\OLED.c</FilePath>
@@ -740,11 +715,6 @@
               <FileName>hcsr.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Hardware\hcsr.h</FilePath>
-            </File>
-            <File>
-              <FileName>Key.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\Key.h</FilePath>
             </File>
             <File>
               <FileName>OLED.h</FileName>

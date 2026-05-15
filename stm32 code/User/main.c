@@ -173,23 +173,22 @@ static void Radar_ShowStatus(uint8_t angle, uint16_t distance_cm, uint8_t timeou
 	if (count > 9999) count = 9999;
 
 	sprintf(line, "A:%3u D:%3u   ", (unsigned int)angle, (unsigned int)distance_cm);
-	OLED_ShowString(0, 0, line, OLED_8X16);
+	OLED_ShowString(1, 1, line);
 
 	sprintf(line, "Min:%3u Obs:%4u", (unsigned int)nearest, (unsigned int)count);
-	OLED_ShowString(0, 16, line, OLED_8X16);
+	OLED_ShowString(2, 1, line);
 
 	if (timeout)
 	{
-		OLED_ShowString(0, 32, "HCSR:Timeout   ", OLED_8X16);
+		OLED_ShowString(3, 1, "HCSR:Timeout   ");
 	}
 	else
 	{
 		sprintf(line, "Echo:%5lu us  ", (unsigned long)HCSR_GetEchoTimeUs());
-		OLED_ShowString(0, 32, line, OLED_8X16);
+		OLED_ShowString(3, 1, line);
 	}
 
-	OLED_ShowString(0, 48, "Mode:Scanning  ", OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(4, 1, "Mode:Scanning  ");
 }
 
 static void Radar_ResetSweepSummary(void)
@@ -209,36 +208,29 @@ int main(void)
 	Delay_ms(300);
 	OLED_Init();
 	OLED_Clear();
-	OLED_ShowString(0, 0, "BOOT OK", OLED_8X16);
-	OLED_ShowString(0, 16, "OLED OK", OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(1, 1, "BOOT OK");
+	OLED_ShowString(2, 1, "OLED OK");
 	Delay_ms(500);
 
 	OLED_Clear();
-	OLED_ShowString(0, 0, "Init SG90...", OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(1, 1, "Init SG90...");
 	SG90_Init();
-	OLED_ShowString(0, 16, "SG90 OK", OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(2, 1, "SG90 OK");
 	Delay_ms(500);
 
 	OLED_Clear();
-	OLED_ShowString(0, 0, "Init HCSR...", OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(1, 1, "Init HCSR...");
 	HCSR_Init();
-	OLED_ShowString(0, 16, "HCSR OK", OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(2, 1, "HCSR OK");
 	Delay_ms(500);
 
 	OLED_Clear();
-	OLED_ShowString(0, 0, "Init ESP8266...", OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(1, 1, "Init ESP8266...");
 	ESP8266_InitWithOLED();
 
 	OLED_Clear();
-	OLED_ShowString(0, 0, "UltrasonicRadar", OLED_8X16);
-	OLED_ShowString(0, 16, "ESP8266 Ready  ", OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(1, 1, "UltrasonicRadar");
+	OLED_ShowString(2, 1, "ESP8266 Ready  ");
 	Radar_DelayAndPoll(500);
 
 	while (1)

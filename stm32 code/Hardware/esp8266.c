@@ -128,7 +128,7 @@ void ESP8266_Init(void)
 
 	while (ESP8266_SendCmd("AT\r\n", "OK"))
 	{
-		Delay_ms(500);
+		Delay_ms(1000);
 	}
 
 	while (ESP8266_SendCmd("AT+CWMODE=1\r\n", "OK"))
@@ -160,19 +160,17 @@ void ESP8266_Init(void)
 static void ESP8266_ShowStep(char *step, uint8_t retry)
 {
 	OLED_Clear();
-	OLED_ShowString(0, 0, "ESP8266 Init", OLED_8X16);
-	OLED_ShowString(0, 16, step, OLED_8X16);
-	OLED_ShowString(0, 32, "Retry:", OLED_8X16);
-	OLED_ShowNum(56, 32, retry, 3, OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(1, 1, "ESP8266 Init");
+	OLED_ShowString(2, 1, step);
+	OLED_ShowString(3, 1, "Retry:");
+	OLED_ShowNum(3, 7, retry, 3);
 }
 
 static void ESP8266_ShowStepOK(char *step)
 {
 	OLED_Clear();
-	OLED_ShowString(0, 0, "ESP8266 OK", OLED_8X16);
-	OLED_ShowString(0, 16, step, OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(1, 1, "ESP8266 OK");
+	OLED_ShowString(2, 1, step);
 	Delay_ms(300);
 }
 
@@ -189,10 +187,9 @@ static void ESP8266_WaitCmdWithOLED(char *step, char *cmd, char *res)
 		if (retry >= ESP8266_STEP_MAX_RETRY)
 		{
 			OLED_Clear();
-			OLED_ShowString(0, 0, "ESP8266 FAIL", OLED_8X16);
-			OLED_ShowString(0, 16, step, OLED_8X16);
-			OLED_ShowString(0, 32, "Check wire/IP", OLED_8X16);
-			OLED_Update();
+			OLED_ShowString(1, 1, "ESP8266 FAIL");
+			OLED_ShowString(2, 1, step);
+			OLED_ShowString(3, 1, "Check wiring/IP");
 			retry = 0;
 			Delay_ms(2000);
 		}
@@ -214,8 +211,7 @@ void ESP8266_InitWithOLED(void)
 	ESP8266_WaitCmdWithOLED("6. TCP", WINDOWS_IP, "CONNECT");
 
 	OLED_Clear();
-	OLED_ShowString(0, 0, "ESP8266 Ready", OLED_8X16);
-	OLED_Update();
+	OLED_ShowString(1, 1, "ESP8266 Ready");
 	Delay_ms(500);
 }
 
